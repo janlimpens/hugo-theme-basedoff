@@ -4,7 +4,7 @@ title = "Based Off - My New Hugo Site"
 theme = "basedoff"
 
 [params]
-mainSections = ['posts']
+mainSections = ['posts', 'ideas']
 customCss = ["css/custom.css"]
 customJs = ["js/custom.js"]
 

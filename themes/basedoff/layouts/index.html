@@ -1,17 +1,18 @@
 {{ define "main" }}
-    _default/index    
+    {{/*  _default/index  */}}
     {{ .Content }}
+    {{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+    {{- $paginator := .Paginate (where $pages "Params.hidden" "ne" true) -}}
+    {{- $paginated := $paginator.Pages -}}
     <div class="listOfPages">
-        {{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
-        {{- $paginator := .Paginate (where $pages "Params.hidden" "ne" true) -}}
-        {{- range $paginator.Pages -}}
-        <div class="singleItemInList">
+        {{- range $paginated -}}
+        <article>
             <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
             <div>
                 {{ .Content }}
             </div>
-        </div>
-        {{- end }}
+        </article>
+        {{ end }}
     </div>
     {{- template "partials/paginator.html" . }}
 {{ end }}
