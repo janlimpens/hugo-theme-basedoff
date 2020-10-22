@@ -1,11 +1,11 @@
 {{ define "main" }}
     {{/*  _default/index  */}}
+    <h1>{{ .Title }}</h1>
     {{ .Content }}
     {{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
     {{- $paginator := .Paginate (where $pages "Params.hidden" "ne" true) -}}
-    {{- $paginated := $paginator.Pages -}}
     <div class="listOfPages">
-        {{- range $paginated -}}
+        {{- range $paginator.Pages -}}
         <article>
             <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
             <div>

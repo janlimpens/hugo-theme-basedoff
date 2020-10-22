@@ -1,8 +1,9 @@
 {{ define "main" }}
     {{/*  _default/list      */}}
-    <article>
+    <h1>{{.Title}}</h1>
+    <div id="content">
         {{.Content}}
-    </article>
+    </div>
     <div class="listOfPages">
         {{- $paginator := .Paginate (where .Data.Pages "Params.hidden" "ne" true) -}}
         {{- range $paginator.Pages -}}

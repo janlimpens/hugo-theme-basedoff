@@ -2,12 +2,13 @@
 <html>
     {{ partial "head.html" . }}
     <body>
-        {{/*  _default/basedoff  */}}
+        <div id="main">
         {{ partial "header.html" . }}
-        <div id="content">
+        
         {{ block "main" . }}
         {{ end -}}
-        </div>
+        
         {{ partial "footer.html" . }}
+        </div>
     </body>
 </html>

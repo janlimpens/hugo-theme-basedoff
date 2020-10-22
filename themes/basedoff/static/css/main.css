@@ -1,0 +1,18 @@
+#main {
+  margin: 0 auto;
+  width: 800px;
+}
+nav ul {
+  padding-left: 0;
+}
+nav li {
+  float: left;
+  list-style: none;
+  margin-right: 1em;
+}
+nav li#site-title {
+  font-weight: 600;
+}
+header {
+  height: 1em;
+}
