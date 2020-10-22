@@ -4,18 +4,12 @@
 name = "Basedoff"
 license = "MIT"
 licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
-description = ""
+description = "A basedoff theme, that aims to be as simple as possible"
 homepage = "http://example.com/"
 tags = []
 features = []
 min_version = "0.41.0"
 
 [author]
-  name = ""
-  homepage = ""
-
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
+  name = "Jan Limpens"
+  homepage = "https://jan.limpens.com"

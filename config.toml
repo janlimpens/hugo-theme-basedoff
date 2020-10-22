@@ -1,3 +1,23 @@
-baseURL = "http://example.org/"
+baseURL = "/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Based Off - My New Hugo Site"
+theme = "basedoff"
+
+[params]
+mainSections = ['posts']
+customCss = ["css/custom.css"]
+customJs = ["js/custom.js"]
+
+[permalinks]
+[[menu.main]]
+weight = 1
+name = "posts"
+url = "/posts"
+[[menu.main]]
+weight = 2
+name = "ideas"
+url = "/ideas"
+[[menu.main]]
+weight = 3
+name = "about"
+url = "/about"
