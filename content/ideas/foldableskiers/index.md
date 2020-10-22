@@ -11,3 +11,5 @@ They have the following advantages
 - less volume
 - no shrinkage
 - no accidents with cars while carrying
+
+![](picture.jpg)

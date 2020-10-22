@@ -1,4 +1,4 @@
-#main {
+#body {
   margin: 0 auto;
   width: 800px;
 }
@@ -15,4 +15,13 @@ nav li#site-title {
 }
 header {
   height: 1em;
+}
+
+#main {
+  float: left;
+  width: inherit;
+}
+
+figure {
+  margin: 0;
 }
