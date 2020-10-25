@@ -1,6 +1,6 @@
 <figure>
 {{- $img := .Page.Resources.GetMatch .Destination -}}
-{{- $imagefit := .Page.Param "image-fit" | default "600x600" -}}
+{{- $imagefit := .Page.Param "image-fit" | default .Page.Site.Params.defaultImageFit -}}
 {{- with $img -}}
     {{ $fit := .Fit $imagefit }}
     <img src="{{ $fit.RelPermalink }}" alt="{{ $.Text }}" title="{{ with $.Title }}{{ . }}{{ end }}" />
