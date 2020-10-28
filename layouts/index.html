@@ -1,18 +1,42 @@
 {{ define "main" }}
-    {{/*  _default/index  */}}
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
-    {{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
-    {{- $paginator := .Paginate (where $pages "Params.hidden" "ne" true) -}}
-    <div class="listOfPages">
-        {{- range $paginator.Pages -}}
-        <article>
-            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-            <div>
-                {{ .Content }}
-            </div>
-        </article>
-        {{ end }}
+<div class="content">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+  {{- $paginator := .Paginate (where $pages "Params.hidden" "ne" true) -}}
+  <div class="list">
+    {{- range $paginator.Pages -}}
+    <div class="list-item">
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <aside class="list-item-meta">
+        <div>
+          <div>{{ .PublishDate.Format "2. 1. 2006" }}</div>
+          {{- if .Params.tags }}
+          <ul>
+            {{- range .Params.tags }}
+            <li>
+              <a href="{{ "/tags/" | relURL }}{{ . | urlize}}">{{ . }}</a>
+            </li>
+            {{- end }}
+          </ul>
+          {{- end }}
+        </div>
+        <div class="social">
+          <div>Share @</div>
+          <ul>
+            <li><a href="https://twitter.com/home?status={{.Permalink}}">Twitter</a></li>
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u={{.Permalink}}">Facebook</a></li>
+            <li><a
+                href="https://www.linkedin.com/shareArticle?mini=true&url={{.Permalink}}&title={{.Title}}&summary={{.Summary}}&source=">Linked
+                In</a></li>
+          </ul>
+        </div>
+      </aside>
+      <article class="list-item-content">
+        {{ .Content }}
+      </article>
     </div>
+    {{ end }}
     {{- template "partials/paginator.html" . }}
-{{ end }}
+  </div>
+  {{ end }}

@@ -1,15 +1,12 @@
-        
-        <header>
-            <nav>
-                <ul>
-                    <li id="site-title">
-                        <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-                    </li>
-                    {{ range .Site.Menus.main }}
-                    <li>
-                        <a href="{{ .URL }}">{{ .Name }}</a>
-                    </li>
-                    {{ end }}
-                </ul>
-            </nav>
-        </header>
+<div class="site-title">
+  <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+</div>
+<nav>
+  <ul>
+    {{ range .Site.Menus.main }}
+    <li>
+      <a href="{{ .URL }}">{{ .Name }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</nav>

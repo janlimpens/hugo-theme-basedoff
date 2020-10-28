@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html>
-    {{ partial "head.html" . }}
-    <body>
-        <div id="body">
-        {{ partial "header.html" . }}
-            <div id="main">
-        {{ block "main" . }}
-        {{ end -}}
-            </div>
-        {{ partial "footer.html" . }}
-        </div>
-    </body>
+  {{ partial "head.html" . }}
+  <body>
+    <div class="main">{{ block "main" . }} {{ end -}}</div>
+    <header>{{ partial "header.html" . }}</header>
+    <footer>{{ partial "footer.html" . }}</footer>
+  </body>
 </html>

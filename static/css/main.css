@@ -1,27 +1,80 @@
-#body {
-  margin: 0 auto;
+body {
+  display: flex;
+  justify-content: center;
+}
+.main {
+  display: flex;
   width: 800px;
+  flex-direction: column;
 }
-nav ul {
-  padding-left: 0;
+.main > * {
+  flex: 1;
 }
-nav li {
-  float: left;
-  list-style: none;
-  margin-right: 1em;
+.content {
+  display: flex;
+  flex-direction: column;
 }
-nav li#site-title {
-  font-weight: 600;
+.content > * {
+  flex: 1;
 }
 header {
-  height: 1em;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+  order: -1;
 }
-
-#main {
-  float: left;
-  width: inherit;
+header > * {
+  flex: 1;
 }
-
+header nav {
+  display: flex;
+}
+header .site-title {
+  font-size: 3ch;
+}
+header > nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+header > nav ul li {
+  flex: 0;
+  margin-left: 1em;
+}
+.list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.list-item {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 1em;
+}
+.list-item h2 {
+  width: 100%;
+}
+.list-item-content {
+  flex: 1;
+}
+.list-item-content > * {
+  margin-top: 0;
+}
+.list-item-meta {
+  flex: 0 0 12em;
+  width: 10em;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+.list-item-meta > * {
+  flex: 1;
+}
+.social {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 figure {
   margin: 0;
 }
