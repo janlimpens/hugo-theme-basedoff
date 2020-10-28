@@ -1,0 +1,12 @@
+<div>
+    <div>{{ .PublishDate.Format "2. 1. 2006" }}</div>
+    {{- if .Params.tags }}
+    <ul>
+        {{- range .Params.tags }}
+        <li>
+            <a href="{{ "/tags/" | relURL }}{{ . | urlize}}">{{ . }}</a>
+        </li>
+        {{- end }}
+    </ul>
+    {{- end }}
+</div>

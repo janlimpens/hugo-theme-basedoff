@@ -46,28 +46,28 @@ header > nav ul li {
   display: flex;
   flex-direction: column;
 }
-.list-item {
+.article {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
   margin-bottom: 1em;
 }
-.list-item h2 {
+.article h2 {
   width: 100%;
 }
-.list-item-content {
+.article-content {
   flex: 1;
 }
-.list-item-content > * {
+.article-content > * {
   margin-top: 0;
 }
-.list-item-meta {
+.article-meta {
   flex: 0 0 12em;
   width: 10em;
   display: flex;
   flex-direction: column;
   align-content: space-between;
 }
-.list-item-meta > * {
+.article-meta > * {
   flex: 1;
 }
 .social {
@@ -75,6 +75,7 @@ header > nav ul li {
   flex-direction: column;
   justify-content: flex-end;
 }
-figure {
-  margin: 0;
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }

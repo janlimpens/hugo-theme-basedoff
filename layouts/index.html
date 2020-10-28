@@ -7,36 +7,10 @@
   <div class="list">
     {{- range $paginator.Pages -}}
     <div class="list-item">
-      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-      <aside class="list-item-meta">
-        <div>
-          <div>{{ .PublishDate.Format "2. 1. 2006" }}</div>
-          {{- if .Params.tags }}
-          <ul>
-            {{- range .Params.tags }}
-            <li>
-              <a href="{{ "/tags/" | relURL }}{{ . | urlize}}">{{ . }}</a>
-            </li>
-            {{- end }}
-          </ul>
-          {{- end }}
-        </div>
-        <div class="social">
-          <div>Share @</div>
-          <ul>
-            <li><a href="https://twitter.com/home?status={{.Permalink}}">Twitter</a></li>
-            <li><a href="https://www.facebook.com/sharer/sharer.php?u={{.Permalink}}">Facebook</a></li>
-            <li><a
-                href="https://www.linkedin.com/shareArticle?mini=true&url={{.Permalink}}&title={{.Title}}&summary={{.Summary}}&source=">Linked
-                In</a></li>
-          </ul>
-        </div>
-      </aside>
-      <article class="list-item-content">
-        {{ .Content }}
-      </article>
+      {{- template "partials/article.html" . }}
     </div>
     {{ end }}
     {{- template "partials/paginator.html" . }}
   </div>
-  {{ end }}
+</div>
+{{ end }}

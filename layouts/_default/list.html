@@ -1,19 +1,15 @@
 {{ define "main" }}
-    {{/*  _default/list      */}}
-    <h1>{{.Title}}</h1>
-    <div id="content">
-        {{.Content}}
-    </div>
-    <div class="listOfPages">
-        {{- $paginator := .Paginate (where .Data.Pages "Params.hidden" "ne" true) -}}
+<div class="content">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    {{- $paginator := .Paginate (where .Data.Pages "Params.hidden" "ne" true) -}}
+    <div class="list">
         {{- range $paginator.Pages -}}
-        <div class="singleItemInList">
-            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-            <div>
-                {{ .Content }}
-            </div>
+        <div class="list-item">
+            {{- template "partials/article.html" . }}
         </div>
-        {{- end }}
+        {{ end }}
+        {{- template "partials/paginator.html" . }}
     </div>
-    {{- template "partials/paginator.html" . }}
+</div>
 {{ end }}

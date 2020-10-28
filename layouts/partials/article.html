@@ -1,0 +1,12 @@
+<article class="article">
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <div class="flex-row">
+        <aside class="article-meta">
+            {{ template "partials/date-and-tags.html" . }}
+            {{ template "partials/social.html" . }}
+        </aside>
+        <div class="article-content">
+            {{ .Content }}
+        </div>
+    </div>
+</article>
