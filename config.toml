@@ -1,7 +1,9 @@
 baseURL = "/"
 languageCode = "en-us"
-title = "Based Off - My New Hugo Site"
+title = "Based Off"
+subtitle = "My New Hugo Site"
 theme = "basedoff"
+DefaultContentLanguage = "en"
 
 [params]
 mainSections = ['posts', 'ideas']
