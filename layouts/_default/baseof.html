@@ -6,7 +6,7 @@
   <div class="main">
     {{ block "main" . }} {{ end -}}
     <header>{{ partial "header.html" . }}</header>
-    <footer>{{ partial "footer.html" . }}</footer>
+    <footer>{{ partialCached "footer.html" . }}</footer>
   </div>
 
 </body>
