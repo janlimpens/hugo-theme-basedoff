@@ -7,31 +7,32 @@
     <title>{{ $title }} - {{ $siteTitle }}</title>
     {{- end -}}
     {{- if isset .Site.Params "favicon" -}}
-    <link rel="icon" type="image/png" href={{ .Site.Params.favicon }} />
+        <link rel="icon" type="image/png" href={{ .Site.Params.favicon }} />
     {{- end -}}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-    {{ end -}}
-
-    {{- template "_internal/opengraph.html" . -}}
-    {{- template "_internal/twitter_cards.html" . -}}
-
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ .Site.BaseURL }}css/normalize.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ .Site.BaseURL }}css/main.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	{{ with .OutputFormats.Get "rss" -}}
+	{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+	{{ end -}}
+	    {{ template "_internal/opengraph.html" . }}
+        {{ template "_internal/twitter_cards.html" . }}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ .Site.BaseURL }}css/normalize.css" />
+	    <link rel="stylesheet" type="text/css" media="screen" href="{{ .Site.BaseURL }}css/main.css" />
     {{- if isset .Site.Params "customcss" }}
-    {{- range .Site.Params.customCss }}
-    <link rel="stylesheet" type="text/css" href="{{ $.Site.BaseURL }}{{ . }}" />
-    {{ end }}
-    {{ end }}
-
+        {{- range .Site.Params.customCss }}
+            {{- if or (hasPrefix . "http://") (hasPrefix . "https://") (hasPrefix . "/") }}
+        <link rel="stylesheet" type="text/css" href="{{ . }}" />
+	        {{- else }}
+        <link rel="stylesheet" type="text/css" href="{{ $.Site.BaseURL }}{{ . }}" />
+	        {{- end }}
+        {{- end }}
+    {{- end }}
     {{- if isset .Site.Params "customjs" -}}
-    {{- range .Site.Params.customJS }}
-    {{- if or (hasPrefix . "http://") (hasPrefix . "https://") }}
-    <script src="{{ . }}"></script>
-    {{- else }}
-    <script src="{{ $.Site.BaseURL }}{{ . }}"></script>
+	    {{- range .Site.Params.customJS }}
+	        {{- if or (hasPrefix . "http://") (hasPrefix . "https://") (hasPrefix . "/") }}
+	    <script src="{{ . }}"></script>
+	        {{- else }}
+	    <script src="{{ $.Site.BaseURL }}{{ . }}"></script>
+	        {{- end }}
+        {{- end }}
     {{- end }}
-    {{- end }}
-    {{- end }}
-</head>
+    </head>
