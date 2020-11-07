@@ -1,5 +1,7 @@
 <div class="site-title">
-  <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+  <a href="{{ .Site.BaseURL }}">
+    {{ $siteTitle }} {{ if isset .Site.Params "subtitle" }}- {{ .Site.Params.Subtitle }}{{ end }}
+  </a>
 </div>
 <nav>
   <ul>
