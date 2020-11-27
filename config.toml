@@ -1,7 +1,6 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "Based Off"
-subtitle = "My New Hugo Site"
 theme = "basedoff"
 DefaultContentLanguage = "en"
 
@@ -10,6 +9,7 @@ mainSections = ['posts', 'ideas']
 customCss = ["css/custom.css"]
 customJs = ["js/custom.js"]
 defaultImageFit = "800x800"
+subtitle = "My New Hugo Site"
 
 [permalinks]
 [[menu.main]]
